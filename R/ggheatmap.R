@@ -4,6 +4,8 @@
 #' from the rownames.
 #' @param midpoint a numeric indicated the middle value of the heatmap legend.
 #' @param scale Boolean value to indicate if scaled using the scale function.
+#' @param show.num Boolean value to indicate if show numbers
+#' @param size a numeric to indicate the size of numbers
 #'
 #' @return a heatmap
 #' @export
@@ -14,7 +16,9 @@
 #' data$samples <- factor(data$samples, levels = data$samples)
 #' ggheatmap(data = data, midpoint = 2, scale = TRUE)
 ggheatmap <- function(data, midpoint,
-                      scale = FALSE){
+                      scale = FALSE,
+                      show.num = FALSE,
+                      size = 4){
   if ("samples" %in% colnames(data)) {
     if (scale) {
       df <- subset(data, select = -samples)
@@ -47,6 +51,11 @@ ggheatmap <- function(data, midpoint,
           axis.line.x.top = element_blank(),
           axis.ticks.x.bottom = element_blank(),
           axis.ticks.x.top = element_blank())
+  if (show.num) {
+    p <- p + geom_text(data = df.melt,
+                       aes(samples, variable, label = value),
+                       color = "black", size = size, fontface = "bold")
+  }
   return(p)
 }
 

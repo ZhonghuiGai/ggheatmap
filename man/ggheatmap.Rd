@@ -4,7 +4,7 @@
 \alias{ggheatmap}
 \title{Draw a simple heatmap based on ggplot2}
 \usage{
-ggheatmap(data, midpoint, scale = FALSE)
+ggheatmap(data, midpoint, scale = FALSE, show.num = FALSE, size = 4)
 }
 \arguments{
 \item{data}{a data.frame with the first collumn as the the sample names usually transformed
@@ -13,6 +13,10 @@ from the rownames.}
 \item{midpoint}{a numeric indicated the middle value of the heatmap legend.}
 
 \item{scale}{Boolean value to indicate if scaled using the scale function.}
+
+\item{show.num}{Boolean value to indicate if show numbers}
+
+\item{size}{a numeric to indicate the size of numbers}
 }
 \value{
 a heatmap
