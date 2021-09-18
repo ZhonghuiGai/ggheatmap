@@ -3,4 +3,6 @@
 export(ggheatmap)
 export(ggheatmap_anno_sample)
 export(ggheatmap_anno_variable)
+export(ggheatmap_cor1)
+export(ggheatmap_cor2)
 export(rowname_to_col)
